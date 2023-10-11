@@ -13,14 +13,16 @@ import { UserModule } from 'src/user/user.module';
   imports: [
     UserModule,
     JwtModule.registerAsync({
+      imports: [ConfigModule], // Importa ConfigModule para usar ConfigService
       useFactory: async (configService: ConfigService) => {
         return {
-          secret: 'THE123!@#',
+          secret: configService.get<string>('SECRET'),
           signOptions: {
             expiresIn: '10d',
           },
         };
       },
+      inject: [ConfigService], // Inyecta ConfigService en la fábrica
     }),
   ],
   controllers: [AuthController],
