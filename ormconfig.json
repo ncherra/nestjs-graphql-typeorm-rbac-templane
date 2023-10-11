@@ -1,0 +1,17 @@
+{
+    "name": "default",
+    "type": "postgres",
+    "url": "postgres://ivxabtxx:ZvIbqeH5H_xGmOGrDdpd8J4ecOtMwdU9@silly.db.elephantsql.com/ivxabtxx",
+    "entities": [
+        "src/**/*.entity.ts"
+    ],
+    "synchronize": true,
+    "logging": true,
+    "migrationsTableName": "migrations",
+    "migrations": [
+        "src/database/migrations/*.ts"
+    ],
+    "cli": {
+        "migrationsDir": "src/database/migrations"
+    }
+}
