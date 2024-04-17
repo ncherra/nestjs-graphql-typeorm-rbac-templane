@@ -4,16 +4,18 @@ import { Request } from 'express';
 import { UserLogin } from './models/user.model';
 import { AuthGuard } from '@nestjs/passport';
 import { User } from 'src/user/user.entity';
+import { Public } from './decorators/public.decorator';
 
 @Controller('auth')
 export class AuthController {
   constructor(private authService: AuthService) {}
 
+  //is /auth
   @UseGuards(AuthGuard('local'))
   @Post()
+  @Public()
   login(@Req() req: Request) {
     const userLogin = req.user as UserLogin;
-    console.log('HOLA');
     return this.authService
       .validateUser(userLogin.username, userLogin.password)
       .then((user: User) => {
@@ -21,13 +23,6 @@ export class AuthController {
         return {
           token: token,
           username: user.username,
-          umaConfig: user.umaConfig,
-          position_x: user.position_x,
-          position_y: user.position_y,
-          position_z: user.position_z,
-          rotation_x: user.rotation_x,
-          rotation_y: user.rotation_y,
-          rotation_z: user.rotation_z,
         };
       });
   }

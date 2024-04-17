@@ -8,9 +8,11 @@ import { JwtStrategy } from './strategies/jwt.strategy';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { UserService } from 'src/user/user.service';
 import { UserModule } from 'src/user/user.module';
+import { RolesGuard } from './guards/roles.guard';
 
 @Module({
   imports: [
+    PassportModule,
     UserModule,
     JwtModule.registerAsync({
       imports: [ConfigModule], // Importa ConfigModule para usar ConfigService
@@ -26,6 +28,6 @@ import { UserModule } from 'src/user/user.module';
     }),
   ],
   controllers: [AuthController],
-  providers: [AuthService, LocalStrategy, JwtStrategy],
+  providers: [AuthService, LocalStrategy, JwtStrategy, RolesGuard],
 })
 export class AuthModule {}

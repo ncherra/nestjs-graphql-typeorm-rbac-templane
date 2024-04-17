@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: Int!
+  username: String!
+  email: String!
+  password: String!
+}
+
+type ReadRolesOutput {
+  id: Int!
+  name: String!
+}
+
+type Query {
+  role(roleId: Int!): ReadRolesOutput!
+  roles: [ReadRolesOutput!]!
+  roleUsers: [ReadRolesOutput!]!
+  roleUser(id: Float!): ReadRolesOutput!
+  userById(userId: Int!): User!
+  users: [User!]!
+}
+
+type Mutation {
+  createRole(createRoleInput: CreateRoleInput!): String!
+  updateRole(updateRoleInput: UpdateRoleInput!): String!
+  removeRole(id: Float!): String!
+  createRoleUser(createRoleUserInput: CreateRoleUserInput!): String!
+  deleteUser(userId: Int!): String!
+  addUserArgs(addUserArgs: AddUserArgs!): String!
+}
+
+input CreateRoleInput {
+  name: String!
+}
+
+input UpdateRoleInput {
+  id: Int!
+  name: String!
+}
+
+input CreateRoleUserInput {
+  id: Int!
+}
+
+input AddUserArgs {
+  username: String!
+  password: String!
+  email: String!
+}

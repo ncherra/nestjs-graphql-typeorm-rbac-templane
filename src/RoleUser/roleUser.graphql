@@ -1,0 +1,24 @@
+type RolesUser {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input CreateRolesUserInput {
+  # Example field (placeholder)
+  exampleField: Int
+}
+
+input UpdateRolesUserInput {
+  id: Int!
+}
+
+type Query {
+  rolesUsers: [RolesUser]!
+  rolesUser(id: Int!): RolesUser
+}
+
+type Mutation {
+  createRolesUser(createRolesUserInput: CreateRolesUserInput!): RolesUser!
+  updateRolesUser(updateRolesUserInput: UpdateRolesUserInput!): RolesUser!
+  removeRolesUser(id: Int!): RolesUser
+}

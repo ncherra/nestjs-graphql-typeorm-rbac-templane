@@ -8,30 +8,33 @@ export class User {
   @Column({ length: 50, unique: true })
   username: string;
 
-  @Column({ length: 100 })
+  @Column({ length: 100, unique: true })
   email: string;
 
   @Column({ length: 100 })
   password: string;
 
-  @Column({ nullable: true })
-  umaConfig: string;
+  @Column({ length: 50, nullable: true })
+  name: string;
 
-  @Column('float', { default: 0 }) // Campo position_x con valor predeterminado 0.0
-  position_x: number;
+  @Column({ length: 50, nullable: true })
+  lastname: string;
 
-  @Column('float', { default: 0 }) // Campo position_y con valor predeterminado 0.0
-  position_y: number;
+  @Column({ length: 100, nullable: true })
+  lastIp: string;
 
-  @Column('float', { default: 0 }) // Campo position_z con valor predeterminado 0.0
-  position_z: number;
+  @Column({ type: 'date', nullable: true })
+  birthday: Date;
 
-  @Column('float', { default: 0 }) // Campo rotation_x con valor predeterminado 0.0
-  rotation_x: number;
+  @Column({ length: 35, nullable: true })
+  dni: string;
 
-  @Column('float', { default: 0 }) // Campo rotation_y con valor predeterminado 0.0
-  rotation_y: number;
+  @Column({ length: 100, nullable: true })
+  address: string;
 
-  @Column('float', { default: 0 }) // Campo rotation_z con valor predeterminado 0.0
-  rotation_z: number;
+  @Column({ length: 30, nullable: true })
+  phoneNumber: string;
+
+  @Column({ length: 50, nullable: true })
+  nationality: string;
 }
